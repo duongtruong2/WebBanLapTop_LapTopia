@@ -7,10 +7,6 @@ include "../model/pdo.php";
 include "../model/danhmuc.php";
 include "../model/sanpham.php";
 include "../model/taikhoan.php";
-
-
-include "../model/cart.php";
-
 include "../global.php";
 
 include "header.php";
@@ -59,7 +55,59 @@ if (isset($_GET['act']) && !empty($_GET['act'])) {
             break;
             //Phần tài khoản
             //Danh sách tài khoản
-      
+        case 'listtk':
+            $listtk = loadall_taikhoan();
+            include "taikhoan/list.php";
+            break;
+            //Thêm tài khoản
+        case 'addtk':
+            if (isset($_POST['themtk'])) {
+                if (empty($_POST['user']) || empty($_POST['email']) || empty($_POST['pass'])) {
+                    $thongbao5 = "Vui lòng nhập đủ 3 trường user, pass, email!";
+                } else {
+                    $user = $_POST['user'];
+                    $pass = $_POST['pass'];
+                    $email = $_POST['email'];
+                    $address = $_POST['address'];
+                    $tel = $_POST['tel'];
+                    $role = $_POST['role'];
+                    $img = $_FILES['img']['name'];
+                    $target_file = $image_path . time() . basename($_FILES['img']['name']);
+                    move_uploaded_file($_FILES['img']['tmp_name'], $target_file);
+                    add_taikhoan_admin($user, $pass, $img, $email, $address, $tel, $role);
+                    $thongbao5 = "Thêm thành công";
+                }
+            }
+            include "taikhoan/add.php";
+            break;
+            //Sửa tài khoản
+        case 'edittk':
+            if (isset($_GET['idtk']) && $_GET['idtk'] > 0) {
+                $onetk = loadone_taikhoan($_GET['idtk']);
+            }
+            if (isset($_POST['edittk'])) {
+                $user = $_POST['user'];
+                $pass = $_POST['pass'];
+                $email = $_POST['email'];
+                $address = $_POST['address'];
+                $tel = $_POST['tel'];
+                $role = $_POST['role'];
+                $id = $_POST['id'];
+                $img = $_FILES['img']['name'];
+                $target_file = $image_path . time() . basename($_FILES['img']['name']);
+                move_uploaded_file($_FILES['img']['tmp_name'], $target_file);
+                update_taikhoan($id, $user, $pass, $img, $email, $address, $tel, $role);
+                header("location: index.php?act=listtk");
+            }
+            include "taikhoan/edit.php";
+            break;
+            //Xóa tài khoản
+        case 'deletetk':
+            if (isset($_GET['idtk']) && $_GET['idtk'] > 0) {
+                delete_taikhoan($_GET['idtk']);
+                header("location: index.php?act=listtk");
+            }
+            break;
             //Phần sản phẩm
             //Danh sách sản phẩm
         case 'listsp':
@@ -130,11 +178,12 @@ if (isset($_GET['act']) && !empty($_GET['act'])) {
         case 'deletesp':
             if (isset($_GET['idsp']) && $_GET['idsp'] > 0) {
                 delete_sanpham($_GET['idsp']);
-                header("location: index?act=listsp");
+                header("location: index.php?act=listsp");
             }
             break;
-        
-          
+            //Phần bình luận
+            //Danh sách bình luận
+
             //Trường hợp khác
         default:
             include "home.php";
