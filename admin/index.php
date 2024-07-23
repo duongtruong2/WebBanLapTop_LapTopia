@@ -178,13 +178,10 @@ if (isset($_GET['act']) && !empty($_GET['act'])) {
         case 'deletesp':
             if (isset($_GET['idsp']) && $_GET['idsp'] > 0) {
                 delete_sanpham($_GET['idsp']);
-                header("location: index.php?act=listsp");
+                header("location: index?act=listsp");
             }
             break;
-            //Phần bình luận
-            //Danh sách bình luận
-
-            //Trường hợp khác
+                
         default:
             include "home.php";
             break;
