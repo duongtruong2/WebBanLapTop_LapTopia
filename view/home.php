@@ -29,11 +29,11 @@
     </div>
 </div>
 
-<div class="title">
-    <h4>SẢN PHẨM MỚI</h4>
+<!-- <div class="title">
+    <h4>SẢN PHẨM NỔI BẬT</h4>
     <hr>
-</div>
-<div class="row">
+</div> -->
+<!-- <div class="row">
     <?php foreach ($dm1 as $key => $sp) : $hinh = $image_path.$sp['img']; ?>
         <div class="boxsp">
             <a href="index.php?act=sanphamct&idsp=<?php echo $sp['id'] ?>"><img src="../upload/<?php echo $sp['img'] ?>" alt=""></a>
@@ -66,13 +66,13 @@
             </div>
         </div>
     <?php endforeach ?>
-</div>
+</div> -->
 <!-- Danh mục 2 -->
-<!-- <div class="title">
+<div class="title">
     <h4>SẢN PHẨM MỚI</h4>
     <hr>
-</div> -->
-<!-- <div class="row">
+</div>
+<div class="row">
     <?php foreach ($dm2 as $key => $sp) : $hinh = $image_path . $sp['img']; ?>
         <div class="boxsp">
             <a href="index.php?act=sanphamct&idsp=<?php echo $sp['id'] ?>"><img src="../upload/<?php echo $sp['img'] ?>" alt=""></a>
@@ -105,4 +105,4 @@
             </div>
         </div>
     <?php endforeach ?>
-</div> -->
+</div>

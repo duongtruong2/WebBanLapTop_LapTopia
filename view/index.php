@@ -4,9 +4,8 @@ include "../model/pdo.php";
 include "../model/danhmuc.php";
 include "../model/sanpham.php";
 include "../model/taikhoan.php";
-// include "../model/binhluan.php";
-// include "../model/thongke.php";
-// include "../model/bienthe.php";
+include "../model/binhluan.php";
+include "../model/bienthe.php";
 include "../model/cart.php";
 include "../global.php";
 
@@ -45,13 +44,13 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
                     $thongbao8 = "Vui lòng nhập nội dung bình luận!";
                 } else {
                     $iduser = $_SESSION['user']['id'];
-                    // insert_binhluan($_POST['idsp'], $_POST['noidung'], $iduser);
+                    insert_binhluan($_POST['idsp'], $_POST['noidung'], $iduser);
                 }
             }
             if (isset($_GET['idsp']) && $_GET['idsp'] > 0) {
                 tangluotxem($_GET['idsp']);
                 $onesp = loadone_sanpham($_GET['idsp']);
-                // $onebtram = load_btram($_GET['idsp']);
+                $onebtram = load_btram($_GET['idsp']);
                 $sp_cungloai = load_sanpham_cungloai($_GET['idsp'], $onesp['iddm']);
 
                 if (isset($_GET['per_page'])) {
@@ -64,9 +63,9 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
                 } else {
                     $page = 1;
                 }
-                // $dsbl = count_bl($_GET['idsp']);
+                $dsbl = count_bl($_GET['idsp']);
                 $sotrang = ceil($dsbl / $soluongbl);
-                // $binhluan = load_binhluan($_GET['idsp'], $page, $soluongbl);
+                $binhluan = load_binhluan($_GET['idsp'], $page, $soluongbl);
             }
             include "sanphamct.php";
             break;
