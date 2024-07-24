@@ -178,7 +178,7 @@ if (isset($_GET['act']) && !empty($_GET['act'])) {
         case 'deletesp':
             if (isset($_GET['idsp']) && $_GET['idsp'] > 0) {
                 delete_sanpham($_GET['idsp']);
-                header("location: indexx?act=listsp");
+                header("location: index.php?act=listsp");
             }
             break;
 

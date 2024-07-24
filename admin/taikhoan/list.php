@@ -13,8 +13,8 @@
                         <th>User</th>
                         <th>Pass</th>
                         <th>Email</th>
-                        <th>Địa chỉ</th>
-                        <th>Số điện thoại</th>
+                        <!-- <th>Địa chỉ</th>
+                        <th>Số điện thoại</th> -->
                         <th>Quyền hạn</th>
                         <th>Chức năng</th>
                     </tr>
@@ -37,8 +37,8 @@
                             <td><?php echo $tk['user'] ?></td>
                             <td><?php echo $tk['pass'] ?></td>
                             <td><?php echo $tk['email'] ?></td>
-                            <td><?php echo $tk['address'] ?></td>
-                            <td><?php echo $tk['tel'] ?></td>
+                            <!-- <td><?php echo $tk['address'] ?></td>
+                            <td><?php echo $tk['tel'] ?></td> -->
                             <td>
                                 <?php if ($tk['role'] == 0) : ?>
                                     Khách hàng
