@@ -18,13 +18,13 @@
                             <option value="<?php echo $spbt['id'] ?>"><?php echo $spbt['ram_sp'] ?></option>
                         <?php endforeach ?>
                     </select><br> -->
-                    <p>Chọn loại ram khác:</p>
+                    <!-- <p>Chọn loại ram khác:</p>
                     <?php foreach ($onebtram as $spbt) : ?>
                         <span style="margin-right: 8px;"><input type="radio" name="idram" class="ram" value="<?php echo $spbt['id'] ?>"> <?php echo $spbt['ram_sp'] ?></span>
-                    <?php endforeach ?>
-                    <select name="idmau" class="mau">
+                    <?php endforeach ?> -->
+                    <!-- <select name="idmau" class="mau">
                         <option value="">Hãy chọn ram để chọn màu</option>
-                    </select>
+                    </select> -->
                     <input type="number" name="soluong" id="sl-input" placeholder="Nhập số lượng" value="1" min="1" required>
                     <p id="sl-hienthi"></p><br>
                     <input type="hidden" id="idsp" name="id" value="<?php echo $onesp['id'] ?>">

@@ -8,6 +8,7 @@ include "../model/danhmuc.php";
 include "../model/sanpham.php";
 include "../model/taikhoan.php";
 include "../model/binhluan.php";
+include "../model/thongke.php";
 include "../model/cart.php";
 include "../model/bienthe.php";
 include "../global.php";
@@ -181,7 +182,7 @@ if (isset($_GET['act']) && !empty($_GET['act'])) {
         case 'deletesp':
             if (isset($_GET['idsp']) && $_GET['idsp'] > 0) {
                 delete_sanpham($_GET['idsp']);
-                header("location: index?act=listsp");
+                header("location: index.php?act=listsp");
             }
             break;
             //Phần bình luận
@@ -204,7 +205,18 @@ if (isset($_GET['act']) && !empty($_GET['act'])) {
                 header("location: index.php?act=listbl");
             }
             break;
-
+        case 'thongke':
+            $thongke = load_thongke();
+            $thongke1=thongke();
+            include "thongke/list.php";
+            break;
+        case 'bieudo':
+            $listtk = load_thongke();
+            include "thongke/char.php";
+            break;
+        case 'bieudo1':
+            include "thongke/char1.php";
+            break;
             //Ram
         case 'listram':
             $listram = loadall_ram();
@@ -277,53 +289,7 @@ if (isset($_GET['act']) && !empty($_GET['act'])) {
                 header("location: index.php?act=listmau");
             }
             break;
-            //Sản phẩm biến thể
-        case 'listbt':
-            $listspbt = loadall_spbt();
-            include "spbienthe/list.php";
-            break;
-        case 'addbt':
-            if (isset($_POST['thembt'])) {
-                if (empty($_POST['soluong'])) {
-                    $thongbao11 = "Không được để trống!";
-                } else {
-                    $idsp = $_POST['idsp'];
-                    $idram = $_POST['idram'];
-                    $idmau = $_POST['idmau'];
-                    $soluong = $_POST['soluong'];
-                    add_spbt($idsp, $idram, $idmau, $soluong);
-                    $thongbao11 = "Thêm thành công";
-                }
-            }
-            $listram = loadall_ram();
-            $listmau = loadall_mau();
-            $listsp = loadall_sanpham("", 0);
-            include "spbienthe/add.php";
-            break;
-        case 'editbt':
-            if (isset($_GET['idbt']) && $_GET['idbt'] > 0) {
-                $onespbt = loadone_spbt($_GET['idbt']);
-            }
-            if (isset($_POST['editbt'])) {
-                $idram = $_POST['idram'];
-                $idsp = $_POST['idsp'];
-                $idbt = $_POST['idbt'];
-                $idmau = $_POST['idmau'];
-                $soluong = $_POST['soluong'];
-                update_spbt($idbt, $idsp, $idram, $idmau, $soluong);
-                header("location: index.php?act=listbt");
-            }
-            $listram = loadall_ram();
-            $listmau = loadall_mau();
-            $listsp = loadall_sanpham("",0);
-            include "spbienthe/edit.php";
-            break;
-        case 'deletebt':
-            if (isset($_GET['idbt']) && $_GET['idbt'] > 0) {
-                delete_spbt($_GET['idbt']);
-                header("location: index.php?act=listbt");
-            }
-            break;
+          
             //Đơn hàng
             //Danh sách đơn hàng
         case 'listdh':
