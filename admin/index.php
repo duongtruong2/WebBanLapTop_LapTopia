@@ -10,7 +10,6 @@ include "../model/taikhoan.php";
 include "../model/binhluan.php";
 include "../model/thongke.php";
 include "../model/cart.php";
-include "../model/bienthe.php";
 include "../global.php";
 
 include "header.php";
