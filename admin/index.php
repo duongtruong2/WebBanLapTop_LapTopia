@@ -302,6 +302,13 @@ if (isset($_GET['act']) && !empty($_GET['act'])) {
             break;
             //Chi tiết đơn hàng
         case 'ctdh':
+            if (isset($_POST['TimKiem'])) {
+                $keyw = $_POST['keyw'];
+            } else {
+                $keyw ="";
+            }
+             $listbill = loadall_billdh($keyw);
+           
             if (isset($_GET['iddh']) && $_GET['iddh'] > 0) {
                 $ctdh = loadall_cart($_GET['iddh']);
                 $onebill = loadone_bill($_GET['iddh']); 
@@ -314,7 +321,7 @@ if (isset($_GET['act']) && !empty($_GET['act'])) {
 
                 header("location:index.php?act=listdh");
             }
-             $listbill = loadall_billdh($keyw);
+           
             include "donhang/ctdh.php";
             break;
             //Cập nhật đơn hàng
