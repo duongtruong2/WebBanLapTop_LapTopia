@@ -304,22 +304,32 @@ if (isset($_GET['act']) && !empty($_GET['act'])) {
         case 'ctdh':
             if (isset($_GET['iddh']) && $_GET['iddh'] > 0) {
                 $ctdh = loadall_cart($_GET['iddh']);
-            }
-            include "donhang/ctdh.php";
-            break;
-            //Cập nhật đơn hàng
-        case 'editdh':
-            if (isset($_GET['iddh']) & $_GET['iddh'] > 0) {
-                $onebill = loadone_bill($_GET['iddh']);
+                $onebill = loadone_bill($_GET['iddh']); 
+                
             }
             if (isset($_POST['editdh'])) {
                 $bill_status = $_POST['bill_status'];
                 $id = $_POST['iddh'];
-                update_bill($id, $bill_status);
-                header("location: index.php?act=listdh");
+                update_bill($id, $bill_status); 
+
+                header("location:index.php?act=listdh");
             }
-            include "donhang/edit.php";
+             $listbill = loadall_billdh($keyw);
+            include "donhang/ctdh.php";
             break;
+            //Cập nhật đơn hàng
+        // case 'editdh':
+        //     if (isset($_GET['iddh']) & $_GET['iddh'] > 0) {
+        //         $onebill = loadone_bill($_GET['iddh']);
+        //     }
+        //     if (isset($_POST['editdh'])) {
+        //         $bill_status = $_POST['bill_status'];
+        //         $id = $_POST['iddh'];
+        //         update_bill($id, $bill_status);
+        //         header("location: index.php?act=listdh");
+        //     }
+        //     include "donhang/edit.php";
+        //     break;
             //Trường hợp khác
         default:
             include "home.php";

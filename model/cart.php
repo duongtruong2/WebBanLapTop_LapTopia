@@ -59,6 +59,7 @@ function loadall_billdh($keyw = "")
     $listbill = pdo_query($sql);
     return $listbill;
 }
+
 function update_bill($id, $bill_status)
 {
     $sql = "UPDATE bill SET `bill_status` ='$bill_status' WHERE id = $id";

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: "Roboto", sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .headding {
+            font-size: 30px;
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-sign {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .text-field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .text-field label {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .text-field input,
+        .text-field select {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .text-field input[type="file"] {
+            padding: 8px;
+        }
+
+        .text-field button {
+            padding: 12px;
+            border: none;
+            outline: none;
+            background-color: #1a1a40;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .text-field button:hover {
+            background-color: #0d7a0d;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+            padding: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <section class="signup container">
+        <div class="signup-main">
+            <h3 class="headding">Đăng Ký</h3>
+            <form class="form-sign" action="" method="POST" autocomplete="off" enctype="multipart/form-data">
+                <div class="text-field">
+                    <label for="username">Tên Tài Khoản</label>
+                    <input name="username" autocomplete="off" type="text" id="username" placeholder="Nhập Tên Tài Khoản" />
+                    <span class="error"></span>
+                </div>
+                <div class="text-field">
+                    <label for="email">Email</label>
+                    <input name="email" autocomplete="off" type="email" id="email" placeholder="Nhập email" />
+                    <span class="error"></span>
+                </div>
+                <div class="text-field">
+                    <label for="password">Mật Khẩu</label>
+                    <input name="password" autocomplete="off" type="password" id="password" placeholder="Nhập Mật Khẩu" />
+                    <span class="error"></span>
+                </div>
+                <div class="text-field">
+                    <label for="rpassword">Nhập Lại Mật Khẩu</label>
+                    <input name="rpassword" autocomplete="off" type="password" id="rpassword"
+                        placeholder="Nhập Lại Mật Khẩu" />
+                    <span class="error"></span>
+                </div>
+                <div class="text-field">
+                    <label for="birthday">Ngày Sinh</label>
+                    <input name="birthday" autocomplete="off" type="date" id="birthday" placeholder="Nhập Ngày Sinh" />
+                    <span class="error"></span>
+                </div>
+                <div class="text-field">
+                    <label>Ảnh Đại Diện</label>
+                    <input type="file" name="avatar" />
+                    <span class="error"></span>
+                </div>
+                <div class="text-field">
+                    <label for="gender">Giới Tính</label>
+                    <select name="gender" id="">
+                        <option value="1">Nam</option>
+                        <option value="0">Nữ</option>
+                    </select>
+                    <button type="submit">Đăng Ký</button>
+            </form>
+        </div>
+    </section>
+    </main>
+</body>
+</html>

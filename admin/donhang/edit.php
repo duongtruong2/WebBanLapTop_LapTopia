@@ -1,4 +1,4 @@
-<div class="mb10">
+<!-- <div class="mb10">
     <h3>CẬP NHẬT TT ĐƠN HÀNG</h3>
 </div>
 <div class="formcontent">
@@ -37,4 +37,4 @@
         <input type="reset" value="Nhập lại">
         <a href="index.php?act=listdh"><input type="button" value="Danh sách"></a><br>
     </form>
-</div>
+</div> -->
