@@ -35,13 +35,12 @@
             <?php endif ?>
         </div><br>
 
-        <div class="mb10">
+        <!-- <div class="mb10">
             <table class="mb10 content-table">
                 <thead>
                     <tr>
 
                         <th>Mã tài khoản</th>
-
                         <th>User</th>
                         <th>Email</th>
                         <th>Địa chỉ</th>
@@ -66,7 +65,52 @@
                     <?php } ?>
                 </tbody>
             </table>
+        </div> -->
+
+
+
+        <div class="mb10">
+            <table class="mb10 content-table">
+                <thead>
+                    <tr>
+                        
+                        <th>Mã tài khoản</th>
+                        <th>Hình ảnh</th>
+                        <th>User</th>
+                        <th>Pass</th>
+                        <th>Email</th>
+                        <th>Địa chỉ</th>
+                        <th>Số điện thoại</th>
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($listtk as $key => $tk) : ?>
+                        <tr>
+                        
+                            <td>TK<?php echo $tk['id'] ?></td>
+                            <td>
+                                <?php $img = $image_path . $tk['img'];
+                                if (is_file($img)) : ?>
+                                    <!-- Nếu đường dẫn ảnh đúng thì in ra if -->
+                                    <img src="<?php echo $img ?>" alt="" width="70px" height="50px">
+                                <?php else : ?>
+                                    <!-- Còn else là đường dẫn sai -->
+                                    <span style="color: red; font-size: 14px;">No file img!</span>
+                                <?php endif ?>
+                            </td>
+                            <td><?php echo $tk['user'] ?></td>
+                            <td><?php echo $tk['pass'] ?></td>
+                            <td><?php echo $tk['email'] ?></td>
+                            <td><?php echo $tk['address'] ?></td>
+                            <td><?php echo $tk['tel'] ?></td>
+                            
+                        </tr>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
         </div>
+
 
         <div class="mb10">
             <table class="mb10 content-table">

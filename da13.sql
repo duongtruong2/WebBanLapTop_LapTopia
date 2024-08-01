@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 06, 2023 at 05:14 AM
+-- Generation Time: Jul 31, 2024 at 07:04 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `da1`
+-- Database: `da13`
 --
 
 -- --------------------------------------------------------
@@ -314,7 +314,7 @@ CREATE TABLE `tai_khoan` (
 
 INSERT INTO `tai_khoan` (`id`, `user`, `pass`, `img`, `email`, `address`, `tel`, `role`) VALUES
 (1, 'DThảo', 'd63wRiHQ', 'anh3.jpg', 'thaodvph36484@fpt.edu.vn', 'Cốc Thôn', '0177628393', 0),
-(16, 'Văn Thảo', '123', '1700673521anh1.jpg', 'thaodvph36484@fpt.edu.vne', 'Cốc Thôn', '0177628393', 1),
+(16, 'admin', '123', '1700673521anh1.jpg', 'admin@gmail.com', 'Cốc Thôn', '0177628393', 1),
 (19, 'Quandubaiz', '123', '1700471321anh2.jpg', 'jjjh@gmail.com', '', '', 0),
 (20, 'kaidztiviii', '123', '1700471331anh2.jpg', 'admin@fpt.edu.vne', '', '', 0),
 (23, 'Quandubaiz', '123', NULL, 'lll@gmail.com', '', '', 0);

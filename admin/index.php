@@ -312,16 +312,17 @@ if (isset($_GET['act']) && !empty($_GET['act'])) {
             if (isset($_GET['iddh']) && $_GET['iddh'] > 0) {
                 $ctdh = loadall_cart($_GET['iddh']);
                 $onebill = loadone_bill($_GET['iddh']); 
+                $listtk = loadall_taikhoan();
                 
             }
             if (isset($_POST['editdh'])) {
                 $bill_status = $_POST['bill_status'];
                 $id = $_POST['iddh'];
                 update_bill($id, $bill_status); 
-
+               
                 header("location:index.php?act=listdh");
             }
-           
+            
             include "donhang/ctdh.php";
             break;
             //Cập nhật đơn hàng
