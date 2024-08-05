@@ -13,7 +13,7 @@
         <div class="mb10">
             <canvas id="revenueChart" width="400" height="400"></canvas>
         </div>
-   
+    <!-- ///////////////////////////// -->
     <script>
         var revenueData = <?php echo json_encode(thongke()); ?>;
 

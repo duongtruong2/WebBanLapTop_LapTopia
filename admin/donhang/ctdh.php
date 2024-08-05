@@ -18,15 +18,14 @@
                 <select name="bill_status">
                     <option value="2" <?php echo ($onebill['bill_status'] == 2) ? 'selected' : ''; ?>>Đang xử lý</option>
                     <option value="3" <?php echo ($onebill['bill_status'] == 3) ? 'selected' : ''; ?>>Đang giao hàng</option>
-                    <option value="4" <?php echo ($onebill['bill_status'] == 4) ? 'selected' : ''; ?>>Đã giao hàng</option>
-                    <option value="5" <?php echo ($onebill['bill_status'] == 5) ? 'selected' : ''; ?>>Đơn hàng bị hủy</option>
+                    <!-- <option value="4" <?php echo ($onebill['bill_status'] == 4) ? 'selected' : ''; ?>>Đã giao hàng</option>
+                    <option value="5" <?php echo ($onebill['bill_status'] == 5) ? 'selected' : ''; ?>>Đơn hàng bị hủy</option> -->
                 </select>
             <?php elseif ($onebill['bill_status'] == 3): ?>
                 <select name="bill_status">
                     <option value="3" <?php echo ($onebill['bill_status'] == 3) ? 'selected' : ''; ?>>Đang giao hàng</option>
                     <option value="4" <?php echo ($onebill['bill_status'] == 4) ? 'selected' : ''; ?>>Giao thành công</option>
-                    <option value="5" <?php echo ($onebill['bill_status'] == 5) ? 'selected' : ''; ?>>Đơn hàng thất bại
-                    </option>
+                    <option value="5" <?php echo ($onebill['bill_status'] == 5) ? 'selected' : ''; ?>>Đơn hàng thất bại</option>
                 </select>
             <?php else: ?>
                 <select name="bill_status">
@@ -35,41 +34,43 @@
             <?php endif ?>
         </div><br>
 
-        <!-- <div class="mb10">
-            <table class="mb10 content-table">
-                <thead>
-                    <tr>
-
-                        <th>Mã tài khoản</th>
-                        <th>User</th>
-                        <th>Email</th>
-                        <th>Địa chỉ</th>
-                        <th>Số điện thoại</th>
-                </thead>
-                <tbody>
-                    <?php
-                    foreach ($listbill as $key => $bill) {
-                        $countsp = loadall_cart_count($bill['id']);
-                        $ttdh = get_ttdh($bill['bill_status']);
-                        $pttt = get_pttt($bill['bill_pttt']);
-                        ?>
-                        <tr>
-                            <td>DA1-<?php echo $bill['id'] ?></td>
-                           
-                            <td><?php echo $bill['bill_name'] ?><br></td>
-                            <td><?php echo $bill['bill_email'] ?><br></td>
-                            <td><?php echo $bill['bill_address'] ?><br></td>
-                            <td><?php echo $bill['bill_tel'] ?></td>
-
-                        </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
-        </div> -->
-
-
-
         <div class="mb10">
+    <table class="mb10 content-table">
+        <thead>
+            <tr>
+                <th>Mã tài khoản</th>
+                <th>Hình ảnh</th>
+                <th>User</th>
+                <th>Email</th>
+                <th>Địa chỉ</th>
+                <th>Số điện thoại</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php
+        foreach ($listbill as $key => $bill) {
+            $countsp = loadall_cart_count($bill['id']);
+            ?>
+            <tr>
+                <td>DA1-<?php echo $bill['id'] ?></td>
+                <td><img src="../upload/123.jpg"  style="width: 100px; height: auto;"></td>
+                <td><?php echo $bill['bill_name'] ?></td>
+                <td><?php echo $bill['bill_email'] ?><br></td>
+                <td><?php echo $bill['bill_address'] ?><br></td>
+                <td><?php echo $bill['bill_tel'] ?><br></td>
+            </tr>
+            <?php
+            break; 
+        }
+        ?>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+        <!-- <div class="mb10">
             <table class="mb10 content-table">
                 <thead>
                     <tr>
@@ -92,10 +93,10 @@
                             <td>
                                 <?php $img = $image_path . $tk['img'];
                                 if (is_file($img)) : ?>
-                                    <!-- Nếu đường dẫn ảnh đúng thì in ra if -->
+                                   
                                     <img src="<?php echo $img ?>" alt="" width="70px" height="50px">
                                 <?php else : ?>
-                                    <!-- Còn else là đường dẫn sai -->
+                                  
                                     <span style="color: red; font-size: 14px;">No file img!</span>
                                 <?php endif ?>
                             </td>
@@ -109,7 +110,7 @@
                     <?php endforeach ?>
                 </tbody>
             </table>
-        </div>
+        </div> -->
 
 
         <div class="mb10">

@@ -302,19 +302,17 @@ if (isset($_GET['act']) && !empty($_GET['act'])) {
             break;
             //Chi tiết đơn hàng
         case 'ctdh':
-            if (isset($_POST['TimKiem'])) {
+            if (isset($_GET['iddh']) && $_GET['iddh'] > 0) {
+                $ctdh = loadall_cart($_GET['iddh']);
+                $onebill = loadone_bill($_GET['iddh']); 
+                // $listtk = loadall_taikhoan(); 
+            }
+             if (isset($_POST['TimKiem'])) {
                 $keyw = $_POST['keyw'];
             } else {
                 $keyw ="";
             }
              $listbill = loadall_billdh($keyw);
-           
-            if (isset($_GET['iddh']) && $_GET['iddh'] > 0) {
-                $ctdh = loadall_cart($_GET['iddh']);
-                $onebill = loadone_bill($_GET['iddh']); 
-                $listtk = loadall_taikhoan();
-                
-            }
             if (isset($_POST['editdh'])) {
                 $bill_status = $_POST['bill_status'];
                 $id = $_POST['iddh'];
