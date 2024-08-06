@@ -8,7 +8,7 @@ include "../model/danhmuc.php";
 include "../model/sanpham.php";
 include "../model/taikhoan.php";
 include "../model/binhluan.php";
-include "../model/thongke.php";
+// include "../model/thongke.php";
 include "../model/cart.php";
 include "../global.php";
 
@@ -204,18 +204,7 @@ if (isset($_GET['act']) && !empty($_GET['act'])) {
                 header("location: index.php?act=listbl");
             }
             break;
-        case 'thongke':
-            $thongke = load_thongke();
-            $thongke1=thongke();
-            include "thongke/list.php";
-            break;
-        case 'bieudo':
-            $listtk = load_thongke();
-            include "thongke/char.php";
-            break;
-        case 'bieudo1':
-            include "thongke/char1.php";
-            break;
+        
             //Ram
         case 'listram':
             $listram = loadall_ram();
